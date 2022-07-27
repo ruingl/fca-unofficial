@@ -575,7 +575,7 @@ function login(loginData, options, callback) {
     logRecordSize: defaultLogRecordSize,
     online: true,
     emitReady: false,
-    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+    userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8"
   };
 
   setOptions(globalOptions, options);
