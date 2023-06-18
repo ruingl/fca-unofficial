@@ -6,7 +6,6 @@ var mqtt = require('mqtt');
 var websocket = require('websocket-stream');
 var HttpsProxyAgent = require('https-proxy-agent');
 const EventEmitter = require('events');
-const { json } = require("body-parser");
 var identity = function () { };
 var form = {};
 var getSeqID = function () { };
