@@ -838,16 +838,12 @@ function formatDeltaEvent(m) {
 
   return {
     type: "event",
-    threadID: formatID(
-      (
-        m.messageMetadata.threadKey.threadFbId ||
-        m.messageMetadata.threadKey.otherUserFbId
-      ).toString()
-    ),
+    threadID: formatID((m.messageMetadata.threadKey.threadFbId || m.messageMetadata.threadKey.otherUserFbId).toString()),
     logMessageType: logMessageType,
     logMessageData: logMessageData,
     logMessageBody: m.messageMetadata.adminText,
-    author: m.messageMetadata.actorFbId
+    author: m.messageMetadata.actorFbId,
+    participantIDs: m.participants || []
   };
 }
 
