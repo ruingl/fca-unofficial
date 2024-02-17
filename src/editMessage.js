@@ -62,7 +62,10 @@ module.exports = function(defaultFuncs, api, ctx) {
           let err = {error: "The message is too old or not from you!"}
           log.error("editMessage", err);
           
-          return callback(err);
+          return callback(err, {
+            body: msgReplace,
+            messageID: msgID
+          });
         }
         
         return callback(undefined, {
