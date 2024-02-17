@@ -505,7 +505,7 @@ const login = require("fca-unofficial");
 login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, api) => {
     if(err) return console.error(err);
 
-    api.editMessage("The message content will be changed", (err, obj) => {
+    api.editMessage("The message content will be changed", "mid.$gAA9RZho2tfKT6ECIqmNtvs6NIqUM", (err, obj) => {
         if(err) return console.error(err.error);
         console.log(obj);
     });
