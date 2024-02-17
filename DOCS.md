@@ -13,6 +13,7 @@
 * [`api.createPoll`](#createPoll)
 * [`api.deleteMessage`](#deleteMessage)
 * [`api.deleteThread`](#deleteThread)
+* [`api.editMessage`](#editMessage)
 * [`api.forwardAttachment`](#forwardAttachment)
 * [`api.getAppState`](#getAppState)
 * [`api.getCurrentUserID`](#getCurrentUserID)
@@ -477,6 +478,36 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
 
     api.deleteThread("000000000000000", (err) => {
         if(err) return console.error(err);
+    });
+});
+```
+
+---------------------------------------
+
+<a name="editMessage"></a>
+### api.editMessage(body, messageID[, callback])
+
+Edit your sent messages.
+Note: This will only work if the message is sent by you and was sent less than 15 minutes ago.
+
+__Arguments__
+
+* `body` - A string of content you want to edit.
+* `messageID` - The id of the message you want to edit (Only works for your own messages).
+* `callback(err, obj)` - (Optional) A callback called when the operation is done and returns a object, maybe with an object representing an error.
+
+__Example__
+
+```js
+const fs = require("fs");
+const login = require("fca-unofficial");
+
+login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, api) => {
+    if(err) return console.error(err);
+
+    api.editMessage("The message content will be changed", (err, obj) => {
+        if(err) return console.error(err.error);
+        console.log(obj);
     });
 });
 ```
