@@ -608,7 +608,7 @@ function login(loginData, options, callback) {
       };
 
       if (fbstate) {
-        loginHelper(appState: fbstate, globalOptions, callback, prCallback);
+        loginHelper({ appState: fbstate }, globalOptions, callback, prCallback);
       };
     });
   } else if (loginData.appState && !loginData.email && !loginData.password) {
