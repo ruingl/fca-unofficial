@@ -598,8 +598,22 @@ function login(loginData, options, callback) {
       return resolveFunc(api);
     };
     callback = prCallback;
-  }
-  loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
+  };
+
+  if (!loginData.appState && loginData.email && loginData.password) {
+    utils.getCookie(loginData.email, loginData.password, (error, fbstate) => {
+      if (error) {
+        return callback(error);
+        log.error("login", `Error while logging in: ${error}`);
+      };
+
+      if (fbstate) {
+        loginHelper(fbState, globalOptions, callback, prCallback);
+      };
+    });
+  } else if (loginData.appState && !loginData.email && !loginData.password) {
+    loginHelper(loginData.appState, globalOptions, callback, prCallback);
+  };
   return returnPromise;
 }
 
