@@ -1409,6 +1409,7 @@ module.exports = {
   makeDefaults,
   parseAndCheckLogin,
   saveCookies,
+  getCookie,
   getType,
   _formatAttachment,
   formatHistoryMessage,
